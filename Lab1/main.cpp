@@ -4,6 +4,8 @@
 #include <conio.h>
 #include <iostream>
 
+using namespace std;
+
 int main() {
     srand(static_cast<int>(time(NULL)));
 
@@ -17,6 +19,6 @@ int main() {
         newGame.receiveDirection();
     } while (!newGame.validateBoard());
 
-    std::cout << "\nYou win!\nGame over!\n";
+    cout << "\nYou win!\nGame over!\n";
     _getch();
 }
