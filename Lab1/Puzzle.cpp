@@ -1,9 +1,10 @@
-﻿#include "Puzzle.h"
+#include "Puzzle.h"
 #include <iostream>
 #include <cstdlib>
 #include <iomanip>
 #include <conio.h>
 
+using namespace std;
 using std::vector;
 using std::cout;
 
@@ -21,7 +22,7 @@ void NewGameBoard::initializeCorrectBoard() {
     correctBoard[NEW_SIZE - 1][NEW_SIZE - 1] = 0;
 }
 
-const std::vector<std::vector<int>>& NewGameBoard::getCorrectBoard() const {
+const vector<vector<int>>& NewGameBoard::getCorrectBoard() const {
     return correctBoard;
 }
 
@@ -32,22 +33,22 @@ bool NewGameBoard::validateBoard() const {
 }
 
 void NewGameBoard::displayGameBoard() const {
-    std::cout << "GameBoard:\n";
+    cout << "GameBoard:\n";
     for (const auto& row : gameBoard) {
         for (const auto& val : row) {
-            std::cout << val << " ";
+            cout << val << " ";
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 }
 
 void NewGameBoard::displayCorrectBoard() const {
-    std::cout << "CorrectBoard:\n";
+    cout << "CorrectBoard:\n";
     for (const auto& row : correctBoard) {
         for (const auto& val : row) {
-            std::cout << val << " ";
+            cout << val << " ";
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 }
 
@@ -74,28 +75,28 @@ void NewGameBoard::initializeGameBoard() {
 
 void NewGameBoard::shiftUp() {
     if (emptyCell.y < NEW_SIZE - 1) {
-        std::swap(gameBoard[emptyCell.y][emptyCell.x], gameBoard[emptyCell.y + 1][emptyCell.x]);
+        swap(gameBoard[emptyCell.y][emptyCell.x], gameBoard[emptyCell.y + 1][emptyCell.x]);
         emptyCell.y++;
     }
 }
 
 void NewGameBoard::shiftDown() {
     if (emptyCell.y > 0) {
-        std::swap(gameBoard[emptyCell.y][emptyCell.x], gameBoard[emptyCell.y - 1][emptyCell.x]);
+        swap(gameBoard[emptyCell.y][emptyCell.x], gameBoard[emptyCell.y - 1][emptyCell.x]);
         emptyCell.y--;
     }
 }
 
 void NewGameBoard::shiftRight() {
     if (emptyCell.x > 0) {
-        std::swap(gameBoard[emptyCell.y][emptyCell.x], gameBoard[emptyCell.y][emptyCell.x - 1]);
+        swap(gameBoard[emptyCell.y][emptyCell.x], gameBoard[emptyCell.y][emptyCell.x - 1]);
         emptyCell.x--;
     }
 }
 
 void NewGameBoard::shiftLeft() {
     if (emptyCell.x < NEW_SIZE - 1) {
-        std::swap(gameBoard[emptyCell.y][emptyCell.x], gameBoard[emptyCell.y][emptyCell.x + 1]);
+        swap(gameBoard[emptyCell.y][emptyCell.x], gameBoard[emptyCell.y][emptyCell.x + 1]);
         emptyCell.x++;
     }
 }
@@ -105,7 +106,7 @@ void NewGameBoard::show() const {
     for (const auto& row : gameBoard) {
         for (const auto& val : row) {
             if (val != 0)
-                cout << std::setw(2) << std::setfill('0') << val << ' ';
+                cout << setw(2) << setfill('0') << val << ' ';
             else
                 cout << "** ";
         }
