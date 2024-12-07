@@ -4,18 +4,20 @@
 #include "../Puzzle15/Puzzle.cpp"
 #include <iostream>
 
+using namespace std;
+
 TEST(NewGameBoardTest, InitializeCorrectBoard) {
     NewGameBoard newGame;
     newGame.initializeCorrectBoard();
 
-    std::vector<std::vector<int>> expectedCorrectBoard = {
+    vector<vector<int>> expectedCorrectBoard = {
         {1, 2, 3, 4},
         {5, 6, 7, 8},
         {9, 10, 11, 12},
         {13, 14, 15, 0}
     };
 
-    const std::vector<std::vector<int>>& actualCorrectBoard = newGame.getCorrectBoard();
+    const vector<vector<int>>& actualCorrectBoard = newGame.getCorrectBoard();
 
     for (unsigned i = 0; i < NEW_SIZE; ++i) {
         for (unsigned j = 0; j < NEW_SIZE; ++j) {
