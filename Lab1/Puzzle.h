@@ -3,6 +3,7 @@
 
 #include <vector>
 
+using namespace std;
 const unsigned short NEW_SIZE = 4;
 
 class NewGameBoard {
@@ -17,7 +18,7 @@ public:
     void shiftLeft();
     void show() const;
     void receiveDirection();
-    const std::vector<std::vector<int>>& getCorrectBoard() const;
+    const vector<vector<int>>& getCorrectBoard() const;
     void displayGameBoard() const;
     void displayCorrectBoard() const;
 
@@ -27,8 +28,8 @@ private:
         unsigned y;
     } emptyCell;
 
-    std::vector<std::vector<int>> gameBoard;
-    std::vector<std::vector<int>> correctBoard;
+    vector<vector<int>> gameBoard;
+    vector<vector<int>> correctBoard;
 };
 
 #endif
